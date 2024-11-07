@@ -13,6 +13,7 @@ export default function Contact() {
     null
   );
 
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -289,3 +290,12 @@ export default function Contact() {
     </div>
   );
 }
+
+
+
+// To Name: {{to_name}}
+// From Name: {{from_name}}
+// From Email: {{from_email}}
+// Phone: {{phone}}
+// Service: {{service}}
+// Message: {{message}}

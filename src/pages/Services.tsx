@@ -3,12 +3,11 @@ import { useInView } from 'react-intersection-observer';
 import {
   Home,
   Building2,
-  PaintBucket,
-  Lightbulb,
-  Palette,
-  Ruler,
-  Sofa,
-  Coffee,
+  Video,
+  ClipboardList,
+  HomeIcon,
+  PartyPopper,
+  MessageCircle,
 } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import GlassCard from '../components/GlassCard';
@@ -19,6 +18,7 @@ interface Service {
   title: string;
   description: string;
   features: string[];
+  imageUrl: string;
 }
 
 const services: Service[] = [
@@ -27,57 +27,113 @@ const services: Service[] = [
     icon: <Home className="h-12 w-12" />,
     title: 'Residential Design',
     description:
-      'Transform your living space into a personalized sanctuary that perfectly reflects your style and meets your needs.',
+      'Transform your living space into a personalized sanctuary that perfectly reflects your style and meets your lifestyle needs.',
     features: [
       'Complete home renovations',
       'Room-specific design',
-      'Space planning and layout',
       'Custom furniture selection',
       'Color and material consultation',
+      'Lighting design',
+      'Space planning and layout optimization'
     ],
+    imageUrl: '../data/images/res_des.jpg'
   },
   {
     id: 'commercial',
     icon: <Building2 className="h-12 w-12" />,
     title: 'Commercial Design',
     description:
-      'Create inspiring workspaces that boost productivity and reflect your brand identity.',
+      'Create inspiring workspaces that boost productivity, reflect your brand identity, and impress your clients.',
     features: [
       'Office space planning',
       'Retail store design',
       'Restaurant and hospitality design',
       'Corporate branding integration',
       'Ergonomic workspace solutions',
+      'Commercial lighting design'
     ],
-  },
-  {
-    id: 'styling',
-    icon: <PaintBucket className="h-12 w-12" />,
-    title: 'Interior Styling',
-    description:
-      'Perfect the finishing touches with our expert styling services.',
-    features: [
-      'Accessory selection and placement',
-      'Art and decor curation',
-      'Seasonal styling updates',
-      'Color scheme development',
-      'Lighting design',
-    ],
+    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c'
   },
   {
     id: 'consultation',
-    icon: <Lightbulb className="h-12 w-12" />,
+    icon: <MessageCircle className="h-12 w-12" />,
     title: 'Design Consultation',
     description:
-      'Get expert advice and ideas to kickstart your interior design project.',
+      'Get expert advice and ideas to kickstart your interior design project with our professional consultation services.',
     features: [
       'Initial design assessment',
       'Budget planning',
       'Material and finish selection',
       'Project timeline planning',
       'Vendor recommendations',
+      'Style direction guidance'
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1577412647266-9c19c5c6d53f'
   },
+  {
+    id: 'virtual',
+    icon: <Video className="h-12 w-12" />,
+    title: 'E-Design / Virtual Consultation',
+    description:
+      'Experience professional interior design services from anywhere in the world through our virtual consultation platform.',
+    features: [
+      'Online design consultations',
+      'Digital mood boards',
+      '3D room visualization',
+      'Shopping lists and links',
+      'Virtual room layouts',
+      'Remote design guidance'
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6'
+  },
+  {
+    id: 'project-management',
+    icon: <ClipboardList className="h-12 w-12" />,
+    title: 'Project Management',
+    description:
+      'Leave the complexities of your design project to us. We handle everything from coordination to execution.',
+    features: [
+      'Contractor coordination',
+      'Timeline management',
+      'Budget tracking',
+      'Quality control',
+      'Vendor management',
+      'Installation supervision'
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1507207611509-ec012433ff52'
+  },
+  {
+    id: 'home-staging',
+    icon: <HomeIcon className="h-12 w-12" />,
+    title: 'Home Staging',
+    description:
+      "Maximize your property's appeal and value with our professional home staging services.",
+    features: [
+      'Pre-sale home preparation',
+      'Furniture and decor rental',
+      'Space optimization',
+      'Professional photography setup',
+      'Quick turnaround staging',
+      'Vacant home staging'
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2'
+  },
+  {
+    id: 'event-styling',
+    icon: <PartyPopper className="h-12 w-12" />,
+    title: 'Event Styling',
+    description:
+      'Create unforgettable experiences with our event styling services for both private and corporate occasions.',
+    features: [
+      'Wedding venue styling',
+      'Corporate event design',
+      'Holiday decorating',
+      'Pop-up shop design',
+      'Themed party decoration',
+      'Seasonal home styling'
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3'
+  }
 ];
 
 export default function Services() {
@@ -167,15 +223,7 @@ export default function Services() {
                 <div className="flex-1">
                   <div className="relative h-full rounded-xl overflow-hidden group transform-gpu transition-all duration-300 hover:scale-105">
                     <img
-                      src={`https://images.unsplash.com/photo-${
-                        index === 0
-                          ? '1600210492486-724fe5c67fb0'
-                          : index === 1
-                          ? '1497366216548-37526070297c'
-                          : index === 2
-                          ? '1586023492539-aff88e888e1d'
-                          : '1577412647266-9c19c5c6d53f'
-                      }`}
+                      src={service.imageUrl}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
